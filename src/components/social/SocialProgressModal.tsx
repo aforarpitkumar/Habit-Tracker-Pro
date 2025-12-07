@@ -133,7 +133,7 @@ export function SocialProgressModal({ open, onOpenChange }: SocialProgressProps)
   };
 
   const habitComparisons = generateHabitComparisons();
-  const filteredComparisons = selectedHabit 
+  const filteredComparisons = selectedHabit
     ? habitComparisons.filter(comp => comp.habitName.toLowerCase().includes(selectedHabit.toLowerCase()))
     : habitComparisons;
 
@@ -161,7 +161,7 @@ export function SocialProgressModal({ open, onOpenChange }: SocialProgressProps)
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl max-h-[85vh] w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] overflow-hidden">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
+          <DialogTitle className="flex items-center justify-between text-foreground">
             <div className="flex items-center gap-2">
               <Trophy className="h-5 w-5" />
               Social Progress & Leaderboards
@@ -306,7 +306,7 @@ export function SocialProgressModal({ open, onOpenChange }: SocialProgressProps)
                     <Card key={comparison.habitName}>
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2 sm:gap-3">
-                          <span 
+                          <span
                             className="text-xl sm:text-2xl p-1.5 sm:p-2 rounded-lg"
                             style={{ backgroundColor: `${comparison.color}20` }}
                           >
@@ -327,7 +327,7 @@ export function SocialProgressModal({ open, onOpenChange }: SocialProgressProps)
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                           {/* Your Progress */}
                           <div>
-                            <h4 className="font-semibold mb-2 sm:mb-3 text-primary text-sm sm:text-base">Your Progress</h4>
+                            <h4 className="font-semibold mb-2 sm:mb-3 text-foreground text-sm sm:text-base">Your Progress</h4>
                             <div className="space-y-1.5 sm:space-y-2">
                               <div className="flex justify-between">
                                 <span className="text-xs sm:text-sm text-muted-foreground">Current Streak:</span>

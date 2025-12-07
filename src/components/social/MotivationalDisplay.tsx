@@ -93,12 +93,12 @@ export function MotivationalDisplay({ className, showDailyContent = true }: Moti
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            <blockquote className="text-lg font-medium leading-relaxed text-gray-900 dark:text-gray-100">
+            <blockquote className="text-lg font-medium leading-relaxed text-foreground">
               "{currentQuote.text}"
             </blockquote>
             <div className="flex items-center justify-between">
               {currentQuote.author && (
-                <cite className="text-sm text-muted-foreground">
+                <cite className="text-sm text-muted-foreground dark:text-gray-300">
                   — {currentQuote.author}
                 </cite>
               )}
@@ -129,10 +129,10 @@ export function MotivationalDisplay({ className, showDailyContent = true }: Moti
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            <h4 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
+            <h4 className="font-semibold text-lg text-foreground">
               {currentTip.title}
             </h4>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">
               {currentTip.content}
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
@@ -169,24 +169,24 @@ export function MotivationalWidget() {
         <div className="space-y-3">
           <div className="flex items-start gap-3">
             <Quote className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-            <blockquote className="text-sm font-medium text-gray-900 dark:text-gray-100 leading-relaxed">
+            <blockquote className="text-sm font-medium text-foreground leading-relaxed">
               "{content.quote.text}"
               {content.quote.author && (
-                <cite className="block text-xs text-muted-foreground mt-1">
+                <cite className="block text-xs text-muted-foreground dark:text-gray-300 mt-1">
                   — {content.quote.author}
                 </cite>
               )}
             </blockquote>
           </div>
-          
+
           <div className="flex items-start gap-3 pt-2 border-t">
             <Lightbulb className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
             <div className="space-y-1">
-              <h5 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+              <h5 className="text-sm font-semibold text-foreground">
                 {content.tip.icon} {content.tip.title}
               </h5>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {content.tip.content.length > 120 
+              <p className="text-xs text-muted-foreground dark:text-gray-300 leading-relaxed">
+                {content.tip.content.length > 120
                   ? content.tip.content.substring(0, 120) + '...'
                   : content.tip.content
                 }

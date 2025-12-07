@@ -42,7 +42,7 @@ export default function SocialPage() {
       timestamp: Date.now()
     };
     setToastCelebrations(prev => [...prev, newToast]);
-    
+
     // Auto-remove after 4 seconds
     setTimeout(() => {
       setToastCelebrations(prev => prev.filter(t => t.id !== newToast.id));
@@ -53,7 +53,7 @@ export default function SocialPage() {
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-4xl max-h-[85vh] w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] overflow-hidden">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
+          <DialogTitle className="flex items-center justify-between text-foreground">
             <div className="flex items-center gap-2">
               <Heart className="h-5 w-5 text-red-500" />
               Social & Motivation
@@ -103,187 +103,187 @@ export default function SocialPage() {
               </TabsTrigger>
             </TabsList>
 
-        {/* Motivation Tab */}
-        <TabsContent value="motivation" className="space-y-6">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Daily Motivation */}
-            <div className="lg:col-span-2">
-              <MotivationalDisplay showDailyContent={true} />
-            </div>
-            
-            {/* Quick Stats */}
-            <div className="space-y-4">
+            {/* Motivation Tab */}
+            <TabsContent value="motivation" className="space-y-6">
+              <div className="grid gap-6 lg:grid-cols-3">
+                {/* Daily Motivation */}
+                <div className="lg:col-span-2">
+                  <MotivationalDisplay showDailyContent={true} />
+                </div>
+
+                {/* Quick Stats */}
+                <div className="space-y-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Target className="h-5 w-5 text-blue-600" />
+                        Your Progress
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">Active Habits</span>
+                        <Badge variant="secondary">5 habits</Badge>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">Current Streak</span>
+                        <Badge className="bg-orange-100 text-orange-800">12 days</Badge>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">Completion Rate</span>
+                        <Badge className="bg-green-100 text-green-800">87%</Badge>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">Challenges Joined</span>
+                        <Badge className="bg-purple-100 text-purple-800">3 active</Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Motivational Widget */}
+                  <MotivationalWidget />
+                </div>
+              </div>
+
+              {/* Random Motivation */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <Sparkles className="h-5 w-5 text-purple-600" />
+                      Need a boost?
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.location.reload()}
+                    >
+                      Get Random Quote
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <MotivationalDisplay showDailyContent={false} />
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Community Challenges Tab */}
+            <TabsContent value="challenges" className="space-y-6">
+              <CommunityChallenges />
+            </TabsContent>
+
+            {/* Celebrations Tab */}
+            <TabsContent value="celebrations" className="space-y-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-blue-600" />
-                    Your Progress
+                    <Gift className="h-5 w-5 text-yellow-600" />
+                    Celebration System
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Active Habits</span>
-                    <Badge variant="secondary">5 habits</Badge>
+                <CardContent className="space-y-6">
+                  <p className="text-muted-foreground">
+                    Test out the celebration system to see how achievements and milestones are celebrated in the app.
+                  </p>
+
+                  {/* Test Celebration Buttons */}
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('habit_completed', 1)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>🎉</span>
+                      First Completion
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('streak_reached', 3)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>🔥</span>
+                      3-Day Streak
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('streak_reached', 7)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>🏆</span>
+                      One Week Strong
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('streak_reached', 30)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>👑</span>
+                      30-Day Champion
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('perfect_day', 1)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>⭐</span>
+                      Perfect Day
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestCelebration('challenge_completed', 1)}
+                      className="flex items-center gap-2"
+                    >
+                      <span>🏅</span>
+                      Challenge Complete
+                    </Button>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Current Streak</span>
-                    <Badge className="bg-orange-100 text-orange-800">12 days</Badge>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Completion Rate</span>
-                    <Badge className="bg-green-100 text-green-800">87%</Badge>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Challenges Joined</span>
-                    <Badge className="bg-purple-100 text-purple-800">3 active</Badge>
+
+                  {/* Celebration Types */}
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">Celebration Types</h4>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <Card className="p-4">
+                        <h5 className="font-medium mb-2 flex items-center gap-2">
+                          <span>🎯</span>
+                          Milestone Celebrations
+                        </h5>
+                        <p className="text-sm text-muted-foreground">
+                          Major achievements like streak milestones, perfect days, and habit formations.
+                        </p>
+                      </Card>
+                      <Card className="p-4">
+                        <h5 className="font-medium mb-2 flex items-center gap-2">
+                          <span>✨</span>
+                          Progress Celebrations
+                        </h5>
+                        <p className="text-sm text-muted-foreground">
+                          Daily wins, consistency rewards, and incremental progress recognition.
+                        </p>
+                      </Card>
+                      <Card className="p-4">
+                        <h5 className="font-medium mb-2 flex items-center gap-2">
+                          <span>🏆</span>
+                          Achievement Unlocks
+                        </h5>
+                        <p className="text-sm text-muted-foreground">
+                          Special badges, titles, and rewards for reaching significant milestones.
+                        </p>
+                      </Card>
+                      <Card className="p-4">
+                        <h5 className="font-medium mb-2 flex items-center gap-2">
+                          <span>🎊</span>
+                          Community Celebrations
+                        </h5>
+                        <p className="text-sm text-muted-foreground">
+                          Challenge completions, community milestones, and social achievements.
+                        </p>
+                      </Card>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Motivational Widget */}
-              <MotivationalWidget />
-            </div>
-          </div>
-
-          {/* Random Motivation */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-purple-600" />
-                  Need a boost?
-                </span>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => window.location.reload()}
-                >
-                  Get Random Quote
-                </Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <MotivationalDisplay showDailyContent={false} />
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        {/* Community Challenges Tab */}
-        <TabsContent value="challenges" className="space-y-6">
-          <CommunityChallenges />
-        </TabsContent>
-
-        {/* Celebrations Tab */}
-        <TabsContent value="celebrations" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Gift className="h-5 w-5 text-yellow-600" />
-                Celebration System
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <p className="text-muted-foreground">
-                Test out the celebration system to see how achievements and milestones are celebrated in the app.
-              </p>
-
-              {/* Test Celebration Buttons */}
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('habit_completed', 1)}
-                  className="flex items-center gap-2"
-                >
-                  <span>🎉</span>
-                  First Completion
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('streak_reached', 3)}
-                  className="flex items-center gap-2"
-                >
-                  <span>🔥</span>
-                  3-Day Streak
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('streak_reached', 7)}
-                  className="flex items-center gap-2"
-                >
-                  <span>🏆</span>
-                  One Week Strong
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('streak_reached', 30)}
-                  className="flex items-center gap-2"
-                >
-                  <span>👑</span>
-                  30-Day Champion
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('perfect_day', 1)}
-                  className="flex items-center gap-2"
-                >
-                  <span>⭐</span>
-                  Perfect Day
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => handleTestCelebration('challenge_completed', 1)}
-                  className="flex items-center gap-2"
-                >
-                  <span>🏅</span>
-                  Challenge Complete
-                </Button>
-              </div>
-
-              {/* Celebration Types */}
-              <div className="space-y-4">
-                <h4 className="font-semibold">Celebration Types</h4>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Card className="p-4">
-                    <h5 className="font-medium mb-2 flex items-center gap-2">
-                      <span>🎯</span>
-                      Milestone Celebrations
-                    </h5>
-                    <p className="text-sm text-muted-foreground">
-                      Major achievements like streak milestones, perfect days, and habit formations.
-                    </p>
-                  </Card>
-                  <Card className="p-4">
-                    <h5 className="font-medium mb-2 flex items-center gap-2">
-                      <span>✨</span>
-                      Progress Celebrations
-                    </h5>
-                    <p className="text-sm text-muted-foreground">
-                      Daily wins, consistency rewards, and incremental progress recognition.
-                    </p>
-                  </Card>
-                  <Card className="p-4">
-                    <h5 className="font-medium mb-2 flex items-center gap-2">
-                      <span>🏆</span>
-                      Achievement Unlocks
-                    </h5>
-                    <p className="text-sm text-muted-foreground">
-                      Special badges, titles, and rewards for reaching significant milestones.
-                    </p>
-                  </Card>
-                  <Card className="p-4">
-                    <h5 className="font-medium mb-2 flex items-center gap-2">
-                      <span>🎊</span>
-                      Community Celebrations
-                    </h5>
-                    <p className="text-sm text-muted-foreground">
-                      Challenge completions, community milestones, and social achievements.
-                    </p>
-                  </Card>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+            </TabsContent>
 
             {/* Achievements Tab */}
             <TabsContent value="achievements" className="space-y-4 sm:space-y-6">
@@ -313,17 +313,17 @@ export default function SocialPage() {
             </TabsContent>
           </Tabs>
 
-      {/* Celebration Components */}
-      {CelebrationComponent}
-      
-      {/* Toast Celebrations */}
-      <div className="fixed top-4 right-4 space-y-2 z-50">
-        {toastCelebrations.map((toast) => (
-          <div key={toast.id} className="animate-in slide-in-from-right-2 duration-300">
-            {/* Toast content would go here */}
+          {/* Celebration Components */}
+          {CelebrationComponent}
+
+          {/* Toast Celebrations */}
+          <div className="fixed top-4 right-4 space-y-2 z-50">
+            {toastCelebrations.map((toast) => (
+              <div key={toast.id} className="animate-in slide-in-from-right-2 duration-300">
+                {/* Toast content would go here */}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
         </div>
 
         {/* Footer */}

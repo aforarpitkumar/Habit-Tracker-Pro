@@ -17,13 +17,13 @@ export default function SettingsPage() {
       <header className="border-b">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
+            <Button variant="ghost" size="sm" onClick={() => router.push('/')} className="text-foreground hover:text-foreground/80">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Dashboard
             </Button>
             <div className="flex items-center gap-2">
               <SettingsIcon className="w-6 h-6 text-primary" />
-              <h1 className="text-2xl font-bold">Settings</h1>
+              <h1 className="text-2xl font-bold text-foreground">Settings</h1>
             </div>
           </div>
         </div>
@@ -32,12 +32,12 @@ export default function SettingsPage() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto space-y-8">
-          
+
           {/* Data Management Section */}
           <section>
             <div className="flex items-center gap-2 mb-6">
               <Database className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-semibold">Data Management</h2>
+              <h2 className="text-xl font-semibold text-foreground">Data Management</h2>
             </div>
             <DataManagementPanel />
           </section>
@@ -46,7 +46,7 @@ export default function SettingsPage() {
           <section>
             <div className="flex items-center gap-2 mb-6">
               <Palette className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-semibold">Appearance</h2>
+              <h2 className="text-xl font-semibold text-foreground">Appearance</h2>
             </div>
             <AppearanceSettings />
           </section>
@@ -54,7 +54,7 @@ export default function SettingsPage() {
           <section>
             <div className="flex items-center gap-2 mb-6">
               <Bell className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-semibold">Notifications</h2>
+              <h2 className="text-xl font-semibold text-foreground">Notifications</h2>
             </div>
             <Card>
               <CardContent className="p-6">

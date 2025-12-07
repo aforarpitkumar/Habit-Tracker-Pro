@@ -59,7 +59,7 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl max-h-[85vh] w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] overflow-hidden">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
+          <DialogTitle className="flex items-center justify-between text-foreground">
             <div className="flex items-center gap-2">
               <Trophy className="h-5 w-5" />
               Achievements & Progress
@@ -112,8 +112,8 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
               <CardContent>
                 <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2">
                   {recentAchievements.map((achievement) => (
-                    <div 
-                      key={achievement.id} 
+                    <div
+                      key={achievement.id}
                       className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-muted rounded-lg"
                     >
                       <span className="text-xl sm:text-2xl">{achievement.icon}</span>
@@ -151,9 +151,9 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
                       {nextAchievement.description}
                     </p>
                     <div className="space-y-2">
-                      <Progress 
-                        value={(nextAchievement.progress / nextAchievement.maxProgress) * 100} 
-                        className="h-2" 
+                      <Progress
+                        value={(nextAchievement.progress / nextAchievement.maxProgress) * 100}
+                        className="h-2"
                       />
                       <div className="flex flex-col sm:flex-row justify-between gap-1 sm:gap-0 text-xs sm:text-sm text-muted-foreground">
                         <span>
@@ -193,8 +193,8 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
               ) : (
                 <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {earnedAchievements.map((achievement) => (
-                    <div 
-                      key={achievement.id} 
+                    <div
+                      key={achievement.id}
                       className="p-2 sm:p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                     >
                       <div className="flex items-start gap-2 sm:gap-3">
@@ -235,8 +235,8 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
               <CardContent>
                 <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2">
                   {unearnedAchievements.map((achievement) => (
-                    <div 
-                      key={achievement.id} 
+                    <div
+                      key={achievement.id}
                       className="p-2 sm:p-3 border rounded-lg opacity-75"
                     >
                       <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -252,9 +252,9 @@ export function AchievementsModal({ open, onOpenChange }: AchievementsModalProps
                         </div>
                       </div>
                       <div className="space-y-1 sm:space-y-2">
-                        <Progress 
-                          value={(achievement.progress / achievement.maxProgress) * 100} 
-                          className="h-1.5 sm:h-2" 
+                        <Progress
+                          value={(achievement.progress / achievement.maxProgress) * 100}
+                          className="h-1.5 sm:h-2"
                         />
                         <div className="flex justify-between text-xs text-muted-foreground">
                           <span>

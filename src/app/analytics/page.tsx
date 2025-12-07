@@ -9,9 +9,9 @@ import { useHabitStore } from '@/lib/stores/habitStore';
 import { StatsOverview } from '@/components/analytics/StatsOverview';
 import { TrendChart } from '@/components/analytics/TrendChart';
 import { HabitLeaderboard } from '@/components/analytics/HabitLeaderboard';
-import { 
-  calculateOverallStats, 
-  generateTrendData, 
+import {
+  calculateOverallStats,
+  generateTrendData,
   getTopPerformingHabits,
   calculateHabitStats
 } from '@/lib/utils/analytics';
@@ -37,8 +37,8 @@ export default function AnalyticsPage() {
     .filter(h => !h.archived)
     .map(habit => calculateHabitStats(habit, completions, selectedPeriod));
 
-  const averageStreak = habitStats.length > 0 
-    ? habitStats.reduce((sum, stat) => sum + stat.currentStreak, 0) / habitStats.length 
+  const averageStreak = habitStats.length > 0
+    ? habitStats.reduce((sum, stat) => sum + stat.currentStreak, 0) / habitStats.length
     : 0;
 
   const periodsData = [
@@ -56,12 +56,13 @@ export default function AnalyticsPage() {
             variant="ghost"
             size="icon"
             onClick={() => router.back()}
+            className="text-foreground hover:text-foreground/80"
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex-1">
-            <h1 className="text-2xl font-bold flex items-center gap-2">
-              <BarChart3 className="h-6 w-6" />
+            <h1 className="text-2xl font-bold flex items-center gap-2 text-foreground">
+              <BarChart3 className="h-6 w-6 text-primary" />
               Analytics Dashboard
             </h1>
             <p className="text-muted-foreground">
@@ -92,8 +93,8 @@ export default function AnalyticsPage() {
         {/* Charts and Insights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Trend Chart */}
-          <TrendChart 
-            data={trendData} 
+          <TrendChart
+            data={trendData}
             title={`Completion Trends (${selectedPeriod} days)`}
           />
 
@@ -130,12 +131,12 @@ export default function AnalyticsPage() {
                   const completions = dayData?.completions || 0;
                   const maxWeekly = Math.max(...trendData.slice(-7).map(d => d.completions), 1);
                   const percentage = (completions / maxWeekly) * 100;
-                  
+
                   return (
                     <div key={day} className="flex items-center gap-3">
                       <span className="text-xs w-8">{day}</span>
                       <div className="flex-1 bg-muted rounded-full h-2">
-                        <div 
+                        <div
                           className="h-2 bg-green-500 rounded-full transition-all"
                           style={{ width: `${percentage}%` }}
                         />
@@ -157,12 +158,12 @@ export default function AnalyticsPage() {
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">Most productive day</span>
                 <span className="text-sm font-medium">
-                  {trendData.length > 0 
+                  {trendData.length > 0
                     ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][
-                        trendData.reduce((maxIndex, current, index) => 
-                          current.completions > (trendData[maxIndex]?.completions || 0) ? index : maxIndex, 0
-                        ) % 7
-                      ]
+                    trendData.reduce((maxIndex, current, index) =>
+                      current.completions > (trendData[maxIndex]?.completions || 0) ? index : maxIndex, 0
+                    ) % 7
+                    ]
                     : 'N/A'
                   }
                 </span>
@@ -174,7 +175,7 @@ export default function AnalyticsPage() {
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">Average per day</span>
                 <span className="text-sm font-medium">
-                  {overallStats.activeDays > 0 
+                  {overallStats.activeDays > 0
                     ? (overallStats.totalCompletions / overallStats.activeDays).toFixed(1)
                     : '0'
                   }

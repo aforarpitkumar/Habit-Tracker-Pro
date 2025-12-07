@@ -17,10 +17,10 @@ export default function CalendarPage() {
   const { getGridSizeClass } = useAppearanceStore();
   const [selectedHabitIndex, setSelectedHabitIndex] = React.useState(0);
   const [editingHabit, setEditingHabit] = React.useState<any>(null);
-  
+
   const activeHabits = getActiveHabits();
   const selectedHabit = activeHabits[selectedHabitIndex];
-  
+
   // Load data on mount
   React.useEffect(() => {
     const loadData = async () => {
@@ -29,7 +29,7 @@ export default function CalendarPage() {
     };
     loadData();
   }, [loadHabits, loadCompletions]);
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -40,25 +40,25 @@ export default function CalendarPage() {
       </div>
     );
   }
-  
+
   if (activeHabits.length === 0) {
     return (
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
+              <Button variant="ghost" size="sm" onClick={() => router.push('/')} className="text-foreground hover:text-foreground/80">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Dashboard
               </Button>
               <div className="flex items-center gap-2">
                 <CalendarIcon className="w-6 h-6 text-primary" />
-                <h1 className="text-2xl font-bold">Calendar View</h1>
+                <h1 className="text-2xl font-bold text-foreground">Calendar View</h1>
               </div>
             </div>
           </div>
         </header>
-        
+
         <main className="container mx-auto px-4 py-8">
           <Card className="max-w-md mx-auto text-center">
             <CardHeader>
@@ -78,7 +78,7 @@ export default function CalendarPage() {
       </div>
     );
   }
-  
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -86,13 +86,13 @@ export default function CalendarPage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
+              <Button variant="ghost" size="sm" onClick={() => router.push('/')} className="text-foreground hover:text-foreground/80">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Dashboard
               </Button>
               <div className="flex items-center gap-2">
                 <CalendarIcon className="w-6 h-6 text-primary" />
-                <h1 className="text-2xl font-bold">Calendar View</h1>
+                <h1 className="text-2xl font-bold text-foreground">Calendar View</h1>
               </div>
             </div>
             <Button variant="outline" onClick={() => router.push('/')}>
@@ -102,7 +102,7 @@ export default function CalendarPage() {
           </div>
         </div>
       </header>
-      
+
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="space-y-6">
@@ -130,12 +130,12 @@ export default function CalendarPage() {
               </CardContent>
             </Card>
           )}
-          
+
           {/* Calendar View */}
           {selectedHabit && (
             <CalendarView habit={selectedHabit} />
           )}
-          
+
           {/* Multiple Habits View */}
           {activeHabits.length > 1 && (
             <Card>
@@ -161,10 +161,10 @@ export default function CalendarPage() {
                         </Button>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {habit.frequency.type === 'daily' ? 'Daily' : 
-                         habit.frequency.type === 'weekly' ? `${habit.frequency.target}/week` :
-                         habit.frequency.type === 'monthly' ? `${habit.frequency.target}/month` :
-                         `${habit.frequency.target}/${habit.frequency.period} days`}
+                        {habit.frequency.type === 'daily' ? 'Daily' :
+                          habit.frequency.type === 'weekly' ? `${habit.frequency.target}/week` :
+                            habit.frequency.type === 'monthly' ? `${habit.frequency.target}/month` :
+                              `${habit.frequency.target}/${habit.frequency.period} days`}
                       </div>
                       <Button
                         variant="ghost"
@@ -183,7 +183,7 @@ export default function CalendarPage() {
               </CardContent>
             </Card>
           )}
-          
+
           {/* Edit Modal */}
           {editingHabit && (
             <HabitEditModal

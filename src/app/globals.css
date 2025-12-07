@@ -22,7 +22,7 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 221 83% 53%;
   --radius: 0.5rem;
-  
+
   /* Phase 2 Animation Variables */
   --animation-duration: 300ms;
   --motion-reduce: 1;
@@ -65,7 +65,7 @@
   --secondary: 217.2 32.6% 17.5%;
   --secondary-foreground: 210 40% 98%;
   --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted-foreground: 215 20.2% 95%;
   --accent: 217.2 32.6% 17.5%;
   --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
@@ -90,17 +90,20 @@ body {
 }
 
 /* Font size classes */
-.text-sm, .text-sm * {
+.text-sm,
+.text-sm * {
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
 }
 
-.text-base, .text-base * {
+.text-base,
+.text-base * {
   font-size: 1rem !important;
   line-height: 1.5rem !important;
 }
 
-.text-lg, .text-lg * {
+.text-lg,
+.text-lg * {
   font-size: 1.125rem !important;
   line-height: 1.75rem !important;
 }
@@ -139,6 +142,7 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   ::before,
   ::after {
@@ -177,14 +181,14 @@ body {
 }
 
 .bg-pattern-grid {
-  background-image: 
+  background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
 .bg-pattern-waves {
-  background-image: 
+  background-image:
     radial-gradient(ellipse at center top, var(--accent) 0%, transparent 50%),
     radial-gradient(ellipse at center bottom, var(--muted) 0%, transparent 50%);
   background-size: 100% 50px;
@@ -193,20 +197,28 @@ body {
 }
 
 .bg-pattern-gradient {
-  background: linear-gradient(135deg, 
-    hsla(var(--primary), 0.1) 0%, 
-    transparent 25%, 
-    hsla(var(--accent), 0.1) 50%, 
-    transparent 75%, 
-    hsla(var(--primary), 0.1) 100%);
+  background: linear-gradient(135deg,
+      hsla(var(--primary), 0.1) 0%,
+      transparent 25%,
+      hsla(var(--accent), 0.1) 50%,
+      transparent 75%,
+      hsla(var(--primary), 0.1) 100%);
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Celebration Animations */
@@ -215,6 +227,7 @@ body {
     transform: translateY(-100vh) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;
@@ -226,10 +239,12 @@ body {
     transform: translateY(0) scale(0) rotate(0deg);
     opacity: 1;
   }
+
   50% {
     transform: translateY(-20px) scale(1.2) rotate(180deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(-40px) scale(0.8) rotate(360deg);
     opacity: 0;
@@ -237,10 +252,13 @@ body {
 }
 
 @keyframes sparkles {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   50% {
     transform: translateY(-10px) scale(1.3) rotate(180deg);
     opacity: 0.7;
@@ -248,10 +266,13 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: brightness(1) drop-shadow(0 0 5px currentColor);
     transform: scale(1);
   }
+
   50% {
     filter: brightness(1.5) drop-shadow(0 0 20px currentColor);
     transform: scale(1.1);
@@ -259,12 +280,16 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   33% {
     transform: translateY(-10px) rotate(5deg);
   }
+
   66% {
     transform: translateY(5px) rotate(-5deg);
   }
@@ -321,6 +346,13 @@ body {
 }
 
 @keyframes flicker {
-  0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+  0% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
 }
